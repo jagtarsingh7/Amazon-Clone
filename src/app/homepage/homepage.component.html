@@ -1,0 +1,22 @@
+<div class="flex min-h-fit  w-full relative ">
+    <div class="flex h-screen w-full "> 
+        <app-banner></app-banner>
+        <div class="h-1/2 w-full absolute top-1/2 bg-gradient-to-b from-transparent to-white z-10 ">
+        </div>
+    </div>
+    <div class="flex flex-col w-full min-h-fit top-1/2 absolute z-20 ">
+        <div *ngIf="items && items.length" class="grid grid-cols-4 w-full p-10 gap-x-10 gap-y-10 ">
+            <div *ngFor="let i of items.slice(0, 8); let ind=index">
+                <app-card (customEvent)="addToCart($event)" [item]="i" [ind]="ind"></app-card>
+            </div>
+        </div>
+        <div class="w-full min-h-fit border-8">
+            <img src="assets/add1.jpg" />
+        </div>
+        <div *ngIf="items && items.length>8" class="grid grid-cols-4 w-full p-10 gap-x-10 gap-y-10 ">
+            <div *ngFor="let i of items.slice(8, items.length); let ind=index">
+                <app-card (customEvent)="addToCart($event)"  [item]="i" [ind]="ind" ></app-card>
+            </div>
+        </div>
+    </div>
+</div>
