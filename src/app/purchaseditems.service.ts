@@ -10,7 +10,7 @@ export class PurchaseditemsService {
 
   constructor(private http:HttpClient) { }
 
-  private apiUrl = 'http://jagtar.ap-south-1.elasticbeanstalk.com/purchased';
+  private apiUrl = 'https://jagtar.ap-south-1.elasticbeanstalk.com/purchased';
 
   getPuchasedItems(email:any):Observable<IPurchasedItems[]>
   {
