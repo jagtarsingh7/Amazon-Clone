@@ -10,9 +10,9 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  private apiUrlSignUp = "http://localhost:8000/signup"
-  private apiUrlSignIn = "http://localhost:8000/signin"
-  private apiUrlCurrentUserAuth = "http://localhost:8000/authverify"
+  private apiUrlSignUp = "http://jagtar.ap-south-1.elasticbeanstalk.com/signup"
+  private apiUrlSignIn = "http://jagtar.ap-south-1.elasticbeanstalk.com/signin"
+  private apiUrlCurrentUserAuth = "http://jagtar.ap-south-1.elasticbeanstalk.com/authverify"
 
    
    signUp(userDetails:UserDetails):Observable<any>{

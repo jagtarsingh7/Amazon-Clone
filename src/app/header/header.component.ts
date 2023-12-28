@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   currentCity: string | undefined
   currentCountry: string | undefined
   postcode: string | undefined
+  countryCode:string|undefined
 
 
   ngOnInit(): void {
@@ -36,6 +37,8 @@ export class HeaderComponent implements OnInit {
         this.currentCity = res.city
         this.currentCountry = res.countryName
         this.postcode = res.postcode
+        this.countryCode=res.countryCode
+
       })
     })
 

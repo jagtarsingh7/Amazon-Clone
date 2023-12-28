@@ -1,11 +1,11 @@
 <div class="flex flex-col min-w-fit bg-slate-900 text-white text-xs">
-    <div class="flex min-w-fit h-14 border md:p-2 p-1 justify-evenly">
+    <div class="flex min-w-fit h-14  md:p-2 p-1 justify-evenly">
         <button iv routerLink="" class=" flex items-center justify-center h-full min-w-fit hover:border-b ">
             <img class="flex lg:w-28 md:w-20 w-12" src="assets/amazon.png" />
         </button>
-        <div class="flex h-full flex-col border md:justify-normal justify-center min-w-fit">
+        <div class="flex h-full flex-col hover:border-b ease-in-out md:justify-normal justify-center min-w-fit">
             <div class="flex md:pl-5  text-gray-300">
-                <p class="md:inline hidden">Delivering to</p> <div class="md:hidden inline"><img class="h-5 w-5" src="assets/location.svg" /></div> &nbsp; {{currentCity}}<p class="md:inline hidden">, {{currentCountry}}</p>
+                <p class="md:inline hidden">Delivering to</p> <div class="md:hidden inline"><img class="h-4 w-2" src="assets/location.svg" /></div><p class="md:inline hidden">&nbsp; {{currentCity}},&nbsp; </p> <p class="">{{countryCode}}</p>
             </div>
             <div class="md:flex hidden">
                 <img class="h-5 w-5" src="assets/location.svg" />
@@ -24,15 +24,15 @@
                 <img class="w-6" src="assets/magnifinedGlass.png" />
             </button>
         </div>
-        <div class="xl:flex hidden border rounded-xl hover:bg-black justify-center items-center">
+        <div class="xl:flex hidden  rounded-xl justify-center items-center">
             <img class="w-5 h-5" src="assets/indiaFlag.png" />EN
             <select name="language" class="bg-slate-900 w-5 h-5">
                 <option value="EN">EN</option>
                 <option value="ES">ES</option>
             </select>
         </div>
-        <button routerLink="/signin" class="flex flex-col border-2 justify-center min-w-fit">
-            <div class=" text-gray-300 border" *ngIf="currentUser.email==null">
+        <button routerLink="/signin" class="flex flex-col hover:border-b ease-in-out justify-center min-w-fit">
+            <div class=" text-gray-300 " *ngIf="currentUser.email==null">
                 Hello, sign in
             </div>
             <div class="text-gray-300" *ngIf="currentUser.email!=null">
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </button>
-        <button class="sm:flex hidden h-full flex-col border" routerLink="/history">
+        <button class="sm:flex hidden h-full flex-col hover:border-b ease-in-out" routerLink="/history">
             <div class="pl-5 text-gray-300">
                 Returns
             </div>
@@ -58,17 +58,17 @@
                 </div>
             </div>
         </button>
-        <div class="flex h-full flex-col justify-start  items-center border min-w-fit">
+        <div class="flex h-full flex-col justify-start  items-center  min-w-fit">
             <div class="text-orange-400 font-bold text-lg h-4 ">
                {{numberOfItemsInCart}}
             </div>
-            <button routerLink="/cart" class="flex">
-                <img class="h-10 w-10 border" src="assets/cart.png" />
+            <button routerLink="/cart" class="flex ">
+                <img class="h-10 w-10 " src="assets/cart.png" />
             </button>
         </div>
     </div>
     <div class="flex w-full bg-slate-700 ">
-        <div class="flex w-14  border">
+        <div class="flex w-14 ">
             <button
                 class="flex flex-col justify-around h-6 w-6 bg-transparent border border-transparent rounded-md focus:outline-none">
                 <span class="bar bg-black h-1 w-full rounded-md"></span>
@@ -76,34 +76,34 @@
                 <span class="bar bg-black h-1 w-full rounded-md"></span>
             </button>
         </div>
-        <div class="md:flex hidden w-24 min-w-fit border text-sm justify-center items-center">
+        <div class="md:flex hidden w-24 min-w-fit hover:border-b text-sm justify-center items-center">
             <button> Best Sellers</button>
         </div>
-        <div class="md:flex hidden w-24  border min-w-fit text-sm justify-center items-center">
+        <div class="md:flex hidden w-24  hover:border-b min-w-fit text-sm justify-center items-center">
             <button> Deals Store </button>
         </div>
-        <div class="flex w-24 border min-w-fit text-sm justify-center items-center">
+        <div class="flex w-24 hover:border-b min-w-fit text-sm justify-center items-center">
             <button> New Releases </button>
         </div>
-        <div class="md:flex hidden w-24 border min-w-fit text-sm justify-center items-center">
+        <div class="md:flex hidden w-24 hover:border-b min-w-fit text-sm justify-center items-center">
             <button>Toys Games </button>
         </div>
-        <div class="md:flex hidden w-24 border min-w-fit text-sm justify-center items-center">
+        <div class="md:flex hidden w-24 hover:border-b min-w-fit text-sm justify-center items-center">
             <button> Gift Ideas </button>
         </div>
-        <div class="md:flex hidden w-24 border  min-w-fit text-sm justify-center items-center">
+        <div class="md:flex hidden w-24 hover:border-b  min-w-fit text-sm justify-center items-center">
             <button> Audible </button>
         </div>
-        <div class="lg:flex hidden w-24 border min-w-fit text-sm justify-center items-center">
+        <div class="lg:flex hidden w-24 hover:border-b min-w-fit text-sm justify-center items-center">
             <button> Electronics </button>
         </div>
-        <div class="lg:flex hidden w-24 border min-w-fit text-sm justify-center items-center">
+        <div class="lg:flex hidden w-24 hover:border-b min-w-fit text-sm justify-center items-center">
             <button> Home </button>
         </div>
-        <div class="flex w-24 border min-w-fit text-sm justify-center items-center">
+        <div class="flex w-24 hover:border-b min-w-fit text-sm justify-center items-center">
             <button> Books </button>
         </div>
-        <div routerLink="/payment"  class="flex flex-grow min-w-fit border text-sm justify-center items-center ">
+        <div routerLink="/payment"  class="flex flex-grow min-w-fit hover:border-b text-sm justify-center items-center ">
             <button> Shop Big Deals </button>
         </div>
     </div>
