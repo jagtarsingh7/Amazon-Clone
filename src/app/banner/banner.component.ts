@@ -28,7 +28,6 @@ export class BannerComponent implements OnInit {
   ngOnInit(): void {
 
     setInterval(() => {
-      console.log(this.timerGate)
       if (!this.timerGate) {
         if (this.count == 2) {
           this.count = -1
@@ -37,8 +36,7 @@ export class BannerComponent implements OnInit {
           this.count++
         }
       }
-
-    }, 4000)
+    }, 3000)
   }
 
 
@@ -53,8 +51,6 @@ export class BannerComponent implements OnInit {
     else if (this.count >= -1 && this.count < 3) {
       this.count++
     }
-    console.log(this.timerGate)
-
     setTimeout(()=>{
       this.timerGate=false
     },2000)

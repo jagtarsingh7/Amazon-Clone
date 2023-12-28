@@ -1,8 +1,9 @@
 <div class="flex  min-h-fit w-full">
     <div class="flex flex-col h-screen w-screen">
         <div class="flex w-full md:px-40  py-10 relative">
-            <img src="assets/banner4.webp" class="h-36 object-cover w-full " />
-            <button class="md:block hidden w-24 p-1 text-sm rounded-md absolute top-0 right-0 z-10 mt-20 mr-48 bg-gray-200">Learn
+            <img src="assets/add1.jpg" class="h-36 object-cover w-full " />
+            <button
+                class="md:block hidden w-24 p-1 text-sm rounded-md absolute top-0 right-0 z-10 mt-20 mr-48 bg-gray-200">Learn
                 More</button>
         </div>
         <div class="flex flex-grow h-full w-full  justify-evenly">
@@ -26,20 +27,24 @@
                     Your Order History
                 </div>
                 <ng-container *ngFor="let items of purchasedProducts; let ind=index">
-                    <div class="flex flex-col flex-grow h-full w-full md:text-lg text-sm " *ngFor="let item of items.product; let ind=index">
+                    <div class="flex flex-col flex-grow h-full w-full md:text-lg text-sm "
+                        *ngFor="let item of items.product; let ind=index">
                         <div class="flex h-full justify-evenly p-4 shadow-lg hover:shadow-xl ease-in-out duration-700 ">
                             <div class="flex h-full max-w-32">
                                 <img class="h-32 w-32" [src]="item?.image" />
                             </div>
                             <div class="flex flex-col w-full h-full">
-                               
-                                <div class="flex  p-2 w-full font-Nunito my-2">
+                                <div class="flex  p-2 w-full md:text-lg text-sm  ">
                                     {{item?.title}}
                                 </div>
-                                <div class="flex  p-2 w-full font-Nunito my-2">
+                                <div
+                                    class="flex p-2 w-full max-h-24 overflow-hidden hover:overflow-scroll md:text-lg text-sm font-Nunito my-2">
+                                    {{item.description}}
+                                </div>
+                                <div class="flex p-2 w-full  md:text-lg text-sm font-Nunito my-2">
                                     Price $ {{item?.price}}
                                 </div>
-                                <div class="flex  p-2 w-full my-2">
+                                <div class="flex p-2 w-full  md:text-lg text-sm my-2">
                                     rating: {{item.rating.rate}}
                                     out of: {{item.rating.count}}
                                 </div>

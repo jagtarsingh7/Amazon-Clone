@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="flex flex-col w-full min-h-fit top-1/2 absolute z-20 ">
-       
+       <div *ngIf="searchedItem && searchedItem.match('')" class=" text-center w-screen"> you have searched for "{{searchedItem}}"</div>
         <div *ngIf="items" class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 w-full p-10 gap-x-10 gap-y-10 ">
             
             <div *ngFor="let i of items.slice(0, 8); let ind=index">
