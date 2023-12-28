@@ -1,0 +1,54 @@
+<div class="flex flex-col h-full border-8">
+<div class="flex flex-col h-screen items-center w-full p-2 " *ngIf="errorMessage==null">
+    <div class="flex mb-2 ">
+        <img  class="w-32"src="assets/amazon2.png"/>
+    </div>
+    <div *ngIf="currentUser?.name!=null" class="flex flex-col mb-20 mt-5 flex-grow shadow-sm w-96 p-8  rounded-xl">
+        <div class="flex h-full w-full text-center justify-center  text-3xl font-Nunito mb-5 text-black">
+            <h1>Already Signed in</h1>
+        </div>
+    </div>
+    <div *ngIf="currentUser?.name==null" class="flex flex-col mb-20 mt-5 flex-grow border-2 shadow-sm w-96 p-8  rounded-xl">
+        <div class="flex text-3xl font-Nunito mb-5">
+            <h1>Sign in</h1>
+        </div>
+        <form [formGroup]="myForm" (ngSubmit)="onsubmit()" class="flex flex-col text-sm  justify-evenly">
+            <div class="flex flex-col my-1">
+                <label class="font-extrabold " for="email">E-mail address </label>
+                <input class="border rounded-sm h-8 p-2" type="text" id="email" formControlName="email" placeholder="Enter your email here"/>
+                <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched" class="text-red-500 mt-1 text-xs">Email is required</div>
+            </div>
+            <div class="flex flex-col">
+                <label class="font-extrabold " for="password">Enter Password</label>
+                <input class="border rounded-sm h-8  p-2" type="password" id="password" formControlName="password" placeholder="Enter your password here"/>
+                <div *ngIf="myForm.get('password')?.invalid && myForm.get('password')?.touched" class="text-red-500 mt-1 text-xs">Password format: 1 special, 1 captital, 1 number</div>
+            </div>
+            <button [disabled]="!myForm.valid" class="bg-yellow-300 rounded-lg mx-1 hover:bg-yellow-400  p-2 mt-5" >Continue</button>
+        </form>
+        <div class="h-48 justify-evenly flex flex-col ">
+            <div class="flex text-xs">
+                <p>By continuing, you agree to Amazon's <a>Conditions of Use</a> and <a>Privacy Notice.</a></p>
+            </div>
+            <div class="flex  text-sm">
+                <p>next?</p>
+            </div>
+            <div class="flex border-b text-sm">
+            </div>
+            <div class="flex flex-col text-sm ">
+                <p> Buying for work?</p>
+                <p> Shop on Amazon Business</p>
+                <a routerLink="/signup" class="flex h-10 mt-5 p-2 justify-center">
+                    <button class="border-b rounded-lg hover:scale-105 hover:text-yellow-500 font-bold ease-in-out duration-1000  "> Create your Amazon account</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="h-screen w-screen flex  items-center justify-center bg-black bg-opacity-20" *ngIf="errorMessage!=null">
+    <div class="flex flex-col p-10 w-96 border shadow-md hover:shadow-lg z-50 bg-white items-center ">
+        <div class="text-center font-bold text-lg mb-5 duration-1000 animate-pulse">{{errorMessage}}</div>
+       <button class="rounded-lg p-4 border bg-yellow-400 hover:bg-yellow-500 hover:scale-105 ease-in-out duration-1000" (click)="errorGone()"> Continue </button>
+    </div>
+</div>
+   
+</div>

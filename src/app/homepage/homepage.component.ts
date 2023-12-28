@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/interfaces/product';
-import { CheckoutService } from '../checkout.service';
+import {  GlobalstateService } from '../globalstate.service';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -10,32 +10,39 @@ import { ProductsService } from '../products.service';
 })
 export class HomepageComponent implements OnInit {
 
-
-  constructor(private productService: ProductsService, private checkoutService:CheckoutService) { }
+  constructor(private globalState:GlobalstateService) { }
 
   items: Product[] | undefined
+
+  searchedItem: string=''
 
   cart: Product[] =[]
 
   ngOnInit(): void {
-    this.productService.getProductData().subscribe(res => {
+ 
+    this.globalState.productsSubscription.subscribe(res => {
       this.items = res
     }, err => {
-      console.log(err)
+      console.log(err) 
+    })
+
+    this.globalState.searchedItemSubscription.subscribe((res)=>{
+
+      if(res!="")
+      {
+
+        this.items=this.globalState.getSearchedItemsResult(res)
+        this.searchedItem=res
+      }
+      else{
+        this.items=this.globalState.getProducts()
+        this.searchedItem=''
+      }
+
+    },err => {
+      console.log(err) 
     })
   }
-
-  addToCart($event: Product) {
-    console.log("event captured"+$event.price)
-    this.cart?.push($event)
-    console.log(this.cart?.length)
-    if(this.cart)
-    {
-      this.checkoutService.updateItemsData(this.cart)
-      console.log("updateItemsData captured"+this.cart)
-    }
-  }
-
 
 }
 

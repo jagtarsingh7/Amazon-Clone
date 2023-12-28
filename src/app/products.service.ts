@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpXsrfTokenExtractor } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Product } from 'src/interfaces/product';
 
@@ -13,10 +13,7 @@ export class ProductsService {
   private apiUrl = "https://fakestoreapi.com/products"
 
   getProductData(): Observable<Product[]> {
-
- 
     return this.http.get<Product[]>(this.apiUrl)
-
   }
 
 }

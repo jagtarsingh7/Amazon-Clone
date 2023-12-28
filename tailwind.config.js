@@ -8,6 +8,12 @@ module.exports = {
       fontFamily: {
         Nunito: ['Nunito Sans', 'sans-serif'], 
       },
+      width: {
+        'cxl': '42rem', 
+      },
+      justify: {
+        'unset': 'unset', // Custom class to unset justify-content
+      },
     },
   },
   plugins: [],

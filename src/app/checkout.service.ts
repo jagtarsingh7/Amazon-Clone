@@ -1,32 +1,27 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Product } from 'src/interfaces/product';
+import { PaymentIntent } from '@stripe/stripe-js';
+import { Observable } from 'rxjs';
+import { IPaymentDetails } from 'src/interfaces/paymentDetails';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckoutService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  private itemsDataSubject = new BehaviorSubject<Product[]>([{
-    id: 0,
-    title: "",
-    price: 0,
-    description: "",
-    category: "",
-    image: "",
-    rating: {
-      rate: 0,
-      count: 0,
-    }
-  }]
-  )
+  private apiUrl = 'http://localhost:8000';
 
-  itemsDataSubscription = this.itemsDataSubject.asObservable()
-  
-  updateItemsData(items: Product[]) {
-    this.itemsDataSubject.next(items)
+  createPaymentIntent(details: IPaymentDetails): Observable<PaymentIntent> {
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}` // token is received and stored
+    });
+    
+    return this.http.post<PaymentIntent>(`${this.apiUrl}/create-payment-intent`, details ,{headers});
   }
-
+  // this.http.get():Observable<>
 }
+

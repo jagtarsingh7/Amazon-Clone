@@ -18,20 +18,60 @@ import { Component, OnInit } from '@angular/core';
     ]),
   ],
 })
-export class BannerComponent implements OnInit{
+export class BannerComponent implements OnInit {
 
-  backgroundImages=['assets/banner1.jpg','assets/banner2.jpg','assets/banner3.jpg']
+
+  backgroundImages = ['assets/banner1.jpg', 'assets/banner2.jpg', 'assets/banner3.jpg']
+  count: number = -1
+  timerGate: boolean = false
 
   ngOnInit(): void {
-    
-    setInterval(()=>{
-      this.count++
-      if(this.count==3)
-      {
-        this.count=-1
+
+    setInterval(() => {
+      console.log(this.timerGate)
+      if (!this.timerGate) {
+        if (this.count == 2) {
+          this.count = -1
+        }
+        else if (this.count >= -1 && this.count < 3) {
+          this.count++
+        }
       }
-    },4000)
+
+    }, 4000)
   }
 
-  count:number=-1
+
+
+
+
+  right() {
+    this.timerGate=true
+    if (this.count == 2) {
+      this.count = -1
+    }
+    else if (this.count >= -1 && this.count < 3) {
+      this.count++
+    }
+    console.log(this.timerGate)
+
+    setTimeout(()=>{
+      this.timerGate=false
+    },2000)
+  }
+  left() {
+    this.timerGate=true
+    if (this.count == -1) {
+      this.count = 2
+    }
+    else if (this.count >= -1 && this.count < 3) {
+      this.count--
+    }
+    console.log(this.timerGate)
+
+    setTimeout(()=>{
+      this.timerGate=false
+    },2000)
+
+  }
 }
