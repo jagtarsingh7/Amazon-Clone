@@ -1,9 +1,9 @@
 <div class="flex flex-col min-w-fit bg-slate-900 text-white text-xs">
-    <div class="flex min-w-fit h-14  md:p-2 p-1 justify-evenly">
+    <div class="flex min-w-fit h-14  md:p-2 p-1 justify-evenly ">
         <button iv routerLink="" class=" flex items-center justify-center h-full min-w-fit hover:border-b ">
-            <img class="flex lg:w-28 md:w-20 w-12" src="assets/amazon.png" />
+            <img class="flex lg:w-28 md:w-20 w-10" src="assets/amazon.png" />
         </button>
-        <div class="flex h-full flex-col hover:border-b ease-in-out md:justify-normal justify-center min-w-fit">
+        <div class="flex h-full flex-col hover:border-b ease-in-out md:justify-normal justify-center min-w-fit px-1">
             <div class="flex md:pl-5  text-gray-300">
                 <p class="md:inline hidden">Delivering to</p> <div class="md:hidden inline"><img class="h-4 w-2" src="assets/location.svg" /></div><p class="md:inline hidden">&nbsp; {{currentCity}},&nbsp; </p> <p class="">{{countryCode}}</p>
             </div>
@@ -14,12 +14,12 @@
                 </div>
             </div>
         </div>
-        <div class="flex h-full justify-center ">
+        <div class="flex h-full justify-center bg-white ">
             <button class="flex border-black rounded-sm bg-gray-300 hover:bg-gray-600 md:w-12 md:text-sm text-xs w-7 justify-center items-center p-2 text-gray-700 font-bold ease-in-out duration-200">
                <div class="">ALL</div>
                 <img src="assets/down.svg" class= "w-2 h-5"/>
             </button>
-            <input class=" text-black xl:w-cxl lg:w-96 md:w-72 sm:w-52 scroll-m-40 h-full" type="text" placeholder="Search..." id="search" name="search" [(ngModel)]="searchItem"  (input)="searchByInput($event)"/>
+            <input class=" text-black xl:w-cxl lg:w-96 md:w-72 sm:w-52 w-36 scroll-m-40 h-full" type="text" placeholder="Search..." id="search" name="search" [(ngModel)]="searchItem"  (input)="searchByInput($event)"/>
             <button class=" bg-yellow-400 md:p-2  min-w-fit" (click)="search()">
                 <img class="w-6" src="assets/magnifinedGlass.png" />
             </button>
@@ -35,7 +35,7 @@
             <div class=" text-gray-300 " *ngIf="currentUser.email==null">
                 Hello, sign in
             </div>
-            <div class="text-gray-300" *ngIf="currentUser.email!=null">
+            <div class="text-gray-300 " *ngIf="currentUser.email!=null">
                 Hello,  {{currentUser.name?.split(' ')![0]}}
             </div>
             <div class="lg:flex hidden">
@@ -59,15 +59,15 @@
             </div>
         </button>
         <div class="flex h-full flex-col justify-start  items-center  min-w-fit">
-            <div class="text-orange-400 font-bold text-lg h-4 ">
+            <div class="text-orange-400 text-xl h-3">
                {{numberOfItemsInCart}}
             </div>
             <button routerLink="/cart" class="flex ">
-                <img class="h-10 w-10 " src="assets/cart.png" />
+                <img class="ml-2 h-8 w-10 hover:border-b" src="assets/cart.png" />
             </button>
         </div>
     </div>
-    <div class="flex w-full bg-slate-700 ">
+    <div class="flex w-full bg-slate-700 md:text-sm text-xs">
         <div class="flex w-14 ">
             <button
                 class="flex flex-col justify-around h-6 w-6 bg-transparent border border-transparent rounded-md focus:outline-none">

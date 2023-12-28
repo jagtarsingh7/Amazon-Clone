@@ -2,7 +2,7 @@
     <div class="flex flex-col h-screen w-screen">
         <div class="flex w-full md:px-40  py-10 relative">
             <img src="assets/banner4.webp" class="h-36 object-cover w-full " />
-            <button class="w-24 p-1 text-sm rounded-md absolute top-0 right-0 z-10 mt-20 mr-48 bg-gray-200">Learn
+            <button class="md:block hidden w-24 p-1 text-sm rounded-md absolute top-0 right-0 z-10 mt-20 mr-48 bg-gray-200">Learn
                 More</button>
         </div>
         <div class="flex flex-grow h-full w-full  justify-evenly">
@@ -11,7 +11,7 @@
                     <img src="assets/jugs.svg" />
                 </div>
                 <div class="flex flex-col justify-evenly w-full h-full ">
-                    <div class="flex justify-start items-center text-3xl h-1/2">
+                    <div class="flex justify-start items-center md:text-3xl text-md h-1/2">
                         Please sign In to view your order history
                     </div>
                     <div class="flex justify-center items-start  h-1/2">
@@ -22,19 +22,17 @@
                 </div>
             </div>
             <div *ngIf="purchasedProducts!.length>0" class="flex flex-col h-full w-3/4">
-                <div class="flex justify-start w-full text-3xl py-5">
+                <div class="flex justify-start w-full md:text-3xl text-md py-5">
                     Your Order History
                 </div>
                 <ng-container *ngFor="let items of purchasedProducts; let ind=index">
-                    <div class="flex flex-col flex-grow h-full w-full " *ngFor="let item of items.product; let ind=index">
+                    <div class="flex flex-col flex-grow h-full w-full md:text-lg text-sm " *ngFor="let item of items.product; let ind=index">
                         <div class="flex h-full justify-evenly p-4 shadow-lg hover:shadow-xl ease-in-out duration-700 ">
                             <div class="flex h-full max-w-32">
                                 <img class="h-32 w-32" [src]="item?.image" />
                             </div>
                             <div class="flex flex-col w-full h-full">
-                                <div class="flex p-2 w-full md:text-lg text-md overflow-hidden hover:overflow-scroll ">
-                                    {{item.description}}
-                                </div>
+                               
                                 <div class="flex  p-2 w-full font-Nunito my-2">
                                     {{item?.title}}
                                 </div>

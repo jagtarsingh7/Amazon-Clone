@@ -11,7 +11,7 @@ export class CheckoutService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'https://jagtar.ap-south-1.elasticbeanstalk.com';
+  private apiUrl = 'https://bison-waders.cyclic.app';
 
   createPaymentIntent(details: IPaymentDetails): Observable<PaymentIntent> {
 
