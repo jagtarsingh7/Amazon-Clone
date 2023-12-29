@@ -9,6 +9,8 @@ import similarity from 'similarity';
 })
 export class GlobalstateService {
 
+
+
   constructor() { }
 
 
@@ -25,6 +27,7 @@ export class GlobalstateService {
   })
   selectedItem = new BehaviorSubject<Product>(null!)
   searchedItem = new BehaviorSubject<string>(null!)
+  headerSwitch=new BehaviorSubject<boolean>(true)
 
   currentUserSubscription = this.currentUser.asObservable()
   itemsInCartSubscription = this.itemsInCart.asObservable()
@@ -32,6 +35,8 @@ export class GlobalstateService {
   selectedItemSubscription = this.selectedItem.asObservable()
   searchedItemSubscription = this.searchedItem.asObservable()
   checkoutPriceSubscription=this.checkoutPrice.asObservable()
+  headerSwitchSubscription=this.headerSwitch.asObservable()
+
 
   updateItemsInCart(i: Product) {
     this.items = this.itemsInCart.getValue()
@@ -42,6 +47,10 @@ export class GlobalstateService {
       this.price += i.price
     })
     this.checkoutPrice.next(this.price)
+  }
+  
+  updateHeaderSwitch(value:boolean){
+    this.headerSwitch.next(value)
   }
 
   removeItemsInCart(i: number) {

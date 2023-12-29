@@ -1,4 +1,4 @@
-<div class="flex flex-col h-full border-8">
+<div class="flex flex-col h-full">
 <div class="flex flex-col h-screen items-center w-full p-2 " *ngIf="errorMessage==null">
     <div class="flex mb-2 ">
         <img  class="w-32"src="assets/amazon2.png"/>
@@ -8,7 +8,7 @@
             <h1>Already Signed in</h1>
         </div>
     </div>
-    <div *ngIf="currentUser?.name==null" class="flex flex-col mb-20 mt-5 flex-grow shadow-sm w-96 p-8  rounded-xl">
+    <div *ngIf="currentUser?.name==null" class="flex flex-col mb-20 mt-5 flex-grow shadow-sm w-96 p-8  rounded-xl sm:border">
         <div class="flex text-3xl font-Nunito mb-5">
             <h1>Sign in</h1>
         </div>

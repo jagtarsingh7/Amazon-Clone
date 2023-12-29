@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from 'src/interfaces/product';
@@ -12,7 +12,7 @@ import { GlobalstateService } from '../globalstate.service';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent implements OnInit,OnDestroy {
 
   myForm!: FormGroup
 
@@ -28,8 +28,12 @@ export class SignInComponent implements OnInit {
 
 
   }
+  ngOnDestroy(): void {
+    this.globalState.updateHeaderSwitch(true)
+  }
   ngOnInit(): void {
     this.globalState.currentUserSubscription.subscribe(res => { this.currentUser = res })
+    this.globalState.updateHeaderSwitch(false)
   }
 
   onsubmit() {
