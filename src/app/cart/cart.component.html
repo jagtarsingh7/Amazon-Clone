@@ -1,7 +1,7 @@
 <div class="flex min-h-fit w-full">
     <div class="flex flex-col h-screen w-screen">
 
-        <div class="flex w-full md:px-40  py-10 relative">
+        <div class="flex w-full md:px-40 py-10 relative">
             <img src="assets/add1.jpg" class="h-36 object-cover w-full " />
             <button class="md:block hidden w-24 p-1 text-sm rounded-md absolute top-0 right-0 z-10 mt-20 mr-48 bg-gray-200">Learn More</button>
         </div>
@@ -18,11 +18,11 @@
                         class="rounded-lg md:w-48 bg-yellow-300 hover:bg-yellow-400 text-center p-2 hover:shadow-2xl hover:ease-in-out duration-500 hover:text-orange-600">
                         Checkout
                     </button>
-                </div>
+                </div> 
             </div>
         </div>
 
-        <div class="flex flex-grow h-full w-full justify-evenly ">
+        <div class="flex flex-grow h-full w-full justify-evenly lg:container lg:mx-auto ">
             <div class="flex w-3/4 h-full" *ngIf="itemsInCart?.length==0">
                 <div class="md:flex hidden w-2/3">
                     <img src="assets/jugs.svg" />
@@ -42,7 +42,7 @@
                     Shopping Cart
                 </div>
                 <div class="flex flex-col flex-grow h-full w-full md: " *ngFor="let item of itemsInCart; let ind=index">
-                    <div class="flex h-full justify-evenly p-4 shadow-lg hover:shadow-xl ease-in-out duration-700 ">
+                    <div class="flex h-full justify-evenly p-4 md:shadow-none md:hover:shadow-none shadow-lg hover:shadow-xl ease-in-out duration-700 ">
                         <div class="flex h-full max-w-32">
                             <img class="md:h-32 md:w-32 h-20 w-20 " [src]="item?.image" />
                         </div>
@@ -82,7 +82,7 @@
                 <div class="flex h-full" *ngIf="itemsInCart.length>0">
                     <div class="flex flex-col h-full  items-start justify-evenly md:text-lg text-xs  text-center ">
                         <p>Subtotal of {{itemsInCart.length}} items is ${{totalCheckoutCost | number: '1.2-2'}}</p>
-                        <div class="flex flex-grow justify-center items-start w-full">
+                        <div class="flex flex-grow justify-center items-start w-full mt-2">
                             <button routerLink="/signin" *ngIf="currentUser?.email==null"
                                 class="rounded-lg md:w-48 bg-yellow-300 hover:bg-yellow-400 text-center p-2 hover:shadow-2xl hover:ease-in-out duration-500 hover:text-orange-600">
                                 Login to Checkout
@@ -95,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="block  w-full h-full ">
+                <div class="block  w-full h-full mt-3 ">
                     <div class="flex text-center font-thin text-lg justify-center">Add more to your cart</div>
                     <div class="flex flex-col w-full p-5 md:text-lg sm:text-sm text-xs" *ngFor="let i of products.slice(0, 4)">
                         <app-card class=" shadow-sm " [item]="i"></app-card>
