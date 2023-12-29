@@ -1,11 +1,14 @@
-<div class="flex flex-col min-w-fit bg-slate-900 text-white text-xs">
-    <div class="flex min-w-fit h-14  md:p-2 p-1 justify-evenly ">
-        <button iv routerLink="" class=" flex items-center justify-center h-full min-w-fit hover:border-b ">
-            <img class="flex lg:w-28 md:w-20 w-10" src="assets/amazon.png" />
+<div class=" flex-col min-w-fit bg-slate-900 text-white text-xs">
+    <div class="sm:flex hidden  min-w-fit h-14 p-2 justify-evenly ">
+        <button routerLink="" class=" flex items-center justify-center h-full min-w-fit hover:border-b ">
+            <img class="flex lg:w-28 w-20 " src="assets/amazon.png" />
         </button>
         <div class="flex h-full flex-col hover:border-b ease-in-out md:justify-normal justify-center min-w-fit px-1">
             <div class="flex md:pl-5 md:w-36 sm:w-20 w-7  text-gray-300">
-                <p class="md:inline hidden">Delivering to</p> <div class="md:hidden inline"><img class="h-4 w-2" src="assets/location.svg" /></div><p class="sm:inline hidden">&nbsp; {{currentCity}},&nbsp; </p> <p class="">{{countryCode}}</p>
+                <p class="md:inline hidden">Delivering to</p>
+                <div class="md:hidden inline"><img class="h-4 w-2" src="assets/location.svg" /></div>
+                <p class="sm:inline hidden">&nbsp; {{currentCity}},&nbsp; </p>
+                <p class="">{{countryCode}}</p>
             </div>
             <div class="md:flex hidden">
                 <img class="h-5 w-5" src="assets/location.svg" />
@@ -15,11 +18,14 @@
             </div>
         </div>
         <div class="flex h-full justify-center bg-white ">
-            <button class="flex border-black rounded-sm bg-gray-300 hover:bg-gray-600 md:w-12 md:text-sm text-xs w-7 justify-center items-center p-2 text-gray-700 font-bold ease-in-out duration-200">
-               <div class="">ALL</div>
-                <img src="assets/down.svg" class= "w-2 h-5"/>
+            <button
+                class="flex border-black rounded-sm bg-gray-300 hover:bg-gray-600 md:w-12 md:text-sm text-xs w-7 justify-center items-center p-2 text-gray-700 font-bold ease-in-out duration-200">
+                <div class="">ALL</div>
+                <img src="assets/down.svg" class="w-2 h-5" />
             </button>
-            <input class=" text-black xl:w-cxl lg:w-96 md:w-72 sm:w-52 w-36 scroll-m-40 h-full" type="text" placeholder="Search..." id="search" name="search" [(ngModel)]="searchItem"  (input)="searchByInput($event)"/>
+            <input class=" text-black xl:w-cxl lg:w-96 md:w-72 sm:w-52 w-36 scroll-m-40 h-full" type="text"
+                placeholder="Search..." id="search" name="search" [(ngModel)]="searchItem"
+                (input)="searchByInput($event)" />
             <button class=" bg-yellow-400 md:p-2  min-w-fit" (click)="search()">
                 <img class="w-6" src="assets/magnifinedGlass.png" />
             </button>
@@ -36,7 +42,7 @@
                 Hello, sign in
             </div>
             <div class="text-gray-300 " *ngIf="currentUser.email!=null">
-                Hello,  {{currentUser.name?.split(' ')![0]}}
+                Hello, {{currentUser.name?.split(' ')![0]}}
             </div>
             <div class="lg:flex hidden">
                 <div class=" text-base font-bold">
@@ -48,27 +54,82 @@
                 </div>
             </div>
         </button>
-        <button class="sm:flex hidden h-full flex-col hover:border-b ease-in-out" routerLink="/history">
+        <button class="lg:flex hidden h-full flex-col hover:border-b ease-in-out" routerLink="/history">
             <div class="pl-5 text-gray-300">
                 Returns
             </div>
-            <div class="flex">
+            <div class="flex ">
                 <div class=" text-base font-bold">
                     & Orders
                 </div>
             </div>
         </button>
+        <button class="lg:hidden flex h-full items-center hover:border-b ease-in-out" routerLink="/history">
+            <div class="pl-5 text-gray-300">
+                Returns
+            </div>
+        </button>
         <div class="flex h-full flex-col justify-start  items-center  min-w-fit">
             <div class="text-orange-400 text-xl h-3">
-               {{numberOfItemsInCart}}
+                {{numberOfItemsInCart}}
             </div>
             <button routerLink="/cart" class="flex ">
                 <img class="ml-2 h-8 w-10 hover:border-b" src="assets/cart.png" />
             </button>
         </div>
     </div>
+    <div class="sm:hidden  flex flex-col w-full">
+        <div class="flex px-2 justify-between w-full">
+            <div class="flex items-center justify-center ">
+                <div class="flex w-14 ">
+                    <button
+                        class="flex flex-col justify-around h-6 w-6 bg-transparent border border-transparent rounded-md focus:outline-none">
+                        <span class="bar bg-white h-1 w-full rounded-md"></span>
+                        <span class="bar bg-white h-1 w-full rounded-md"></span>
+                        <span class="bar bg-white  h-1 w-full rounded-md"></span>
+                    </button>
+                </div>
+                <button routerLink="" class=" flex items-center justify-center h-full min-w-fit hover:border-b ">
+                    <img class="flex w-20" src="assets/amazon.png" />
+                </button>
+            </div>
+            <div class="flex items-center justify-center">
+                <button routerLink="/signin"
+                    class="flex  hover:border-b ease-in-out justify-center items-center min-w-fit">
+                    <div class=" text-gray-300 text-md " *ngIf="currentUser.email==null">
+                        Hello, sign in
+                    </div>
+                    <div class="text-gray-300 text-md  " *ngIf="currentUser.email!=null">
+                        Hello, {{currentUser.name?.split(' ')![0]}}
+                    </div>
+                    <img class="ml-2  w-10 hover:border-b " *ngIf="currentUser.email==null" src="assets/user.png" />
+                </button>
+                <div class="flex h-full flex-col justify-start  items-center  min-w-fit">
+                    <div class="text-orange-400 text-xl h-3">
+                        {{numberOfItemsInCart}}
+                    </div>
+                    <button routerLink="/cart" class="flex ">
+                        <img class="ml-2 h-8 w-10 hover:border-b" src="assets/cart.png" />
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="flex h-full justify-center bg-white">
+            <button
+                class="flex border-black rounded-sm bg-gray-300 hover:bg-gray-600 md:w-12 md:text-sm text-xs w-7 justify-center items-center p-2 text-gray-700 font-bold ease-in-out duration-200">
+                <div class="">ALL</div>
+                <img src="assets/down.svg" class="w-2 h-5" />
+            </button>
+            <input class=" text-black text-lg h-10 w-full scroll-m-40 " type="text" placeholder="Search..." id="search"
+                name="search" [(ngModel)]="searchItem" (input)="searchByInput($event)" />
+            <button class=" bg-yellow-400 p-2  min-w-fit" (click)="search()">
+                <img class="w-6" src="assets/magnifinedGlass.png" />
+            </button>
+        </div>
+
+    </div>
     <div class="flex w-full bg-slate-700 md:text-sm text-xs">
-        <div class="flex w-14 ">
+        <div class="sm:flex hidden w-14 ">
             <button
                 class="flex flex-col justify-around h-6 w-6 bg-transparent border border-transparent rounded-md focus:outline-none">
                 <span class="bar bg-black h-1 w-full rounded-md"></span>
@@ -79,7 +140,7 @@
         <div class="md:flex hidden w-24 min-w-fit hover:border-b text-sm justify-center items-center">
             <button> Best Sellers</button>
         </div>
-        <div class="md:flex hidden w-24  hover:border-b min-w-fit text-sm justify-center items-center">
+        <div class="flex w-24  hover:border-b min-w-fit text-sm justify-center items-center">
             <button> Deals Store </button>
         </div>
         <div class="flex w-24 hover:border-b min-w-fit text-sm justify-center items-center">
@@ -103,8 +164,17 @@
         <div class="flex w-24 hover:border-b min-w-fit text-sm justify-center items-center">
             <button> Books </button>
         </div>
-        <div routerLink="/payment"  class="flex flex-grow min-w-fit hover:border-b text-sm justify-center items-center ">
+        <div routerLink="/payment" class="flex flex-grow min-w-fit hover:border-b text-sm justify-center items-center ">
             <button> Shop Big Deals </button>
         </div>
     </div>
+    <div class="sm:hidden flex">
+        <div class="flex min-h-fit justify-center items-center text-gray-300">
+            <div class=""><img class="h-5 w-5" src="assets/location.svg" /></div>
+            <p class=" ">&nbsp; Delivering to &nbsp;{{currentCity}},&nbsp;{{currentCountry}} </p>
+        </div>
+    </div>
+
+
+
 </div>

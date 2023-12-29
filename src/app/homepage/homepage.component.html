@@ -1,21 +1,20 @@
 <div class="flex min-h-fit w-screen relative ">
     <div class="flex h-screen w-full "> 
         <app-banner></app-banner>
-        <div class="h-1/2 w-full absolute top-1/2 bg-gradient-to-b from-transparent to-white z-10 ">
+        <div class="sm:block hidden h-1/2 w-full absolute top-1/2 bg-gradient-to-b from-transparent to-white z-10 ">
         </div>
     </div>
-    <div class="flex flex-col w-full min-h-fit top-1/2 absolute z-20 ">
+    <div class="flex flex-col w-full min-h-fit sm:top-1/2 top-36 absolute z-20">
        <div *ngIf="searchedItem && searchedItem.match('')" class=" text-center w-screen"> you have searched for "{{searchedItem}}"</div>
-        <div *ngIf="items" class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 w-full p-10 gap-x-10 gap-y-10 ">
-            
+        <div *ngIf="items" class="grid lg:grid-cols-4 grid-cols-2 w-full sm:p-10 p-1 sm:gap-x-10 gap-x-2 sm:gap-y-10 gap-y-2  ">
             <div *ngFor="let i of items.slice(0, 8); let ind=index">
                 <app-card [item]="i" [ind]="ind"></app-card>
             </div>
         </div>
-        <div *ngIf="items && items.length>8" class="w-full min-h-fit  ">
+        <div *ngIf="items && items.length>8" class="sm:block hidden w-full min-h-fit  ">
             <img src="assets/add1.jpg" />
         </div>
-        <div *ngIf="items && items.length>8" class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 w-full p-10 gap-x-10 gap-y-10 ">
+        <div *ngIf="items && items.length>8" class="grid lg:grid-cols-4 grid-cols-2 w-full sm:p-10 p-1 sm:gap-x-10 gap-x-2 sm:gap-y-10 gap-y-2  ">
             <div *ngFor="let i of items.slice(8, items.length); let ind=index">
                 <app-card [item]="i" [ind]="ind" ></app-card>
             </div>
